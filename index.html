@@ -9,13 +9,26 @@
 		<header class="header">
 			<div class="container">
 				<h1 class="title_1">Показники захворюваності на COVID у країнах Центральної Європи</h1>
+				<h2 class="h2"> УКРАЇНА </h2>
 			</div>
 		</header>
+
+		<div class="backdrop is-hidden" data-modal>
+            <div class="modal">
+				<div id="selCountry" class="data"></div>
+				<div id="selPopulation" class="data"></div>
+				<div id="selInfections" class="data"></div>
+				<div id="selDeceased" class="data"></div>
+				<div id="selRecovered" class="data"></div>
+
+                <button class="modal-close-button" data-modal-close>Закрити</button>
+                
+            </div>
+        </div>
 	
 		<section class="flex-elem">
 			<div class="container">
-			<div class="h2"> УКРАЇНА </h2>
-			</div>
+			
 			<p>В Україні коронавірусна інфекція Covid-19 (пневмонія нового типу) вперше була діагностована 3 березня 2020 року у Чернівцях.
 			13 березня було зафіксовано перший летальний кінець у результаті коронавірусної інфекції. 
 			На 2 травня 2022 року в Україні налічувалося 5002870 тих, хто заразився, з них померлих - 108411.
@@ -29,7 +42,55 @@
 			
 			<p> Однією з найпоширеніших проблем, з якою зіткнулося людство, стала пандемія СOVID-19. Тому перед сьогоденним суспільством постало ряд викликів. Пандемія охопила майже увесь світ та уразила величезну кількість людей. Мінфін України з посиланням на офіційні дані статистики ВООЗ від 06.05.2022 року дає такі статистичні показники стосовно людей у світі, які захворіли на COVID-19 – 516046489, з них 6272693 смертних випадки [https://index.minfin.com.ua/reference/coronavirus/]. Оскільки Україна є однією з країн Центральної Європи, то питання пандемії у цій частині світу стало доволі актуальним. Відомо, що всього у Європі було зафіксовано 192890919 випадки захворюваності на COVID-19 </p>
 
+			<div>
+				<form name="myForm">
+					<select name="Country" size="5">
+						<option value="---" selected="selected">---</option>
+						<option value="Німеччина">Німеччина</option>
+						<option value="Білорусь" >Білорусь</option>
+						<option value="Естонія">Естонія</option>
+						<option value="Латвія">Латвія</option>	
+						<option value="Литва">Литва</option>
+						<option value="Польща">Польща</option>
+						<option value="Сербія">Сербія</option>
+						<option value="Хорватія">Хорватія</option>
+						<option value="Словаччина">Словаччина</option>
+						<option value="Угорщина">Угорщина</option>
+						<option value="Україна">Україна</option>
+
+
+					</select>
+				</form>
+
+				<script>
+					var Select = myForm.Country;
+					 
+					function changeOption(){
+						 
+						var selection = document.getElementById("selection");
+						var selectedOption = Select.options[Select.selectedIndex];
+
+						const countrySelected = dataCountry.find(item => item.country === selectedOption.text);
+
+						selCountry.textContent = "---";
+
+						selCountry.textContent = "Країна: " + countrySelected.country;
+						selPopulation.textContent = "Населення: " + countrySelected.population;
+						selInfections.textContent = "Захворівших: " + countrySelected.infections;
+						selDeceased.textContent = "Померло: " + countrySelected.deceased;
+						selRecovered.textContent = "Вилікувались: " + countrySelected.recovered;
+					}
+					 
+					Select.addEventListener("change", changeOption);
+					</script>
+		
+
+				<button type="button" class="open-modal-button" data-modal-open>Перегляд</button>
 			</div>
+			</div>
+			
 		</section>
+		<script src="./js/modal.js"></script>
+		<script src="./js/data.js"></script>
 	</body>
 </html> 
