@@ -8,49 +8,48 @@
 	<body>
 		<header class="header">
 			<div class="container">
+				<div class="logo"></div>
 				<h1 class="title_1">Показники захворюваності на COVID у країнах Центральної Європи</h1>
-				
 			</div>
 		</header>
 
-		<div class="backdrop is-hidden" data-modal>
-            <div class="modal">
-				<div id="selCountry" class="data"></div>
-				<div id="selPopulation" class="data"></div>
-				<div id="selInfections" class="data"></div>
-				<div id="selDeceased" class="data"></div>
-				<div id="selRecovered" class="data"></div>
+		
 
-                <button class="modal-close-button" data-modal-close>Закрити</button>
-                
-            </div>
-        </div>
-	
-		<section class="flex-elem">
+		<section>  
 			<div class="container">
+
+				<div class="box">
+					<p class = "font">  Однією з найпоширеніших проблем, з якою зіткнулося людство, стала пандемія <b>СOVID-19</b>. Тому перед сьогоденним суспільством постало ряд викликів. Пандемія охопила майже увесь світ та уразила величезну кількість людей. Мінфін України з посиланням на офіційні дані статистики ВООЗ від 06.05.2022 року дає такі статистичні показники стосовно людей у світі, які захворіли на COVID-19 – 516046489, з них 6272693 смертних випадки 
+					</p>
+				</div>
+					
+				<div class="box">
+					<p class = "font"><b>31 грудня 2019 року </b> влада Китаю повідомила про спалах невідомої пневмонії у <b>Всесвітню Організацію Охорони Здоров'я (ВООЗ).</b>
+					</p>
+				</div>
 			
-			<p class = "font">  Однією з найпоширеніших проблем, з якою зіткнулося людство, стала пандемія <b>СOVID-19</b>. Тому перед сьогоденним суспільством постало ряд викликів. Пандемія охопила майже увесь світ та уразила величезну кількість людей. Мінфін України з посиланням на офіційні дані статистики ВООЗ від 06.05.2022 року дає такі статистичні показники стосовно людей у світі, які захворіли на COVID-19 – 516046489, з них 6272693 смертних випадки 
-			</p>
-
-			<p class = "font"><b>31 грудня 2019 року </b> влада Китаю повідомила про спалах невідомої пневмонії у <b>Всесвітню Організацію Охорони Здоров'я (ВООЗ).</b>
-			</p>
+				<div class="box">
+					<p class = "font"> <b> 30 січня ВООЗ </b> визнала спалах нового коронавірусу надзвичайною ситуацією в галузі охорони здоров'я, що має міжнародне значення.
+					</p>
+				</div>
 			
-			<p class = "font"> <b> 30 січня ВООЗ </b> визнала спалах нового коронавірусу надзвичайною ситуацією в галузі охорони здоров'я, що має міжнародне значення.
-			</p>
+				<div class="box">
+					<p class = "font"> 11 лютого 2020 року захворювання отримало назву нової коронавірусної пневмонії - COVID-2019 (офіційна назва SARS-CoV-2). </p>
+				</div>
 			
-			<p class = "font"> 11 лютого 2020 року захворювання отримало назву нової коронавірусної пневмонії - COVID-2019 (офіційна назва SARS-CoV-2). </p>
+				<div class="box">
+					<span> 
+						
+						<a href = "https://www.un.org/en/coronavirus" class="link">  Офіційний сайт ООН - https://www.un.org/en/coronavirus</a>
+						<a href = "https://www.msf.org" class="link">  Медична гуманітарна організація "Лікарі без кордонів" - https://www.msf.org</a>
+						<a href = "https://www.euro.who.int/en/home" class="link">  ВООЗ. Європа - https://www.euro.who.int/en/home</a>
+					</span>
+				</div>
+			
 
-			<div class="link">
-				 
-				<a href = "https://www.un.org/en/coronavirus">  Офіційний сайт ООН - https://www.un.org/en/coronavirus  </a>
-				<a href = "https://www.msf.org/">  Медична гуманітарна організація "Лікарі без кордонів"
-					https://www.msf.org/  </a>
-				<a href = "https://www.euro.who.int/en/home">  ВООЗ. Європа
-					https://www.euro.who.int/en/home  </a>
+			
 
-			</div>
-
-				<div>
+				<div class="box">
 				<form name="myForm" class="select-form">
 					<select name="Country" size="12" class="select">
 						<option value="---" selected="selected">---</option>
@@ -73,6 +72,19 @@
 			</div>
 			
 		</section>
+
+		<div class="backdrop is-hidden" data-modal>
+            <div class="modal">
+				<div id="selCountry" class="data"></div>
+				<div id="selPopulation" class="data"></div>
+				<div id="selInfections" class="data"></div>
+				<div id="selDeceased" class="data"></div>
+				<div id="selRecovered" class="data"></div>
+
+                <button class="modal-close-button" data-modal-close>Закрити</button>
+                
+            </div>
+        </div>
 
 		<script>
 					var Select = myForm.Country;
