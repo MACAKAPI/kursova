@@ -89,20 +89,17 @@
 		<script>
 					var Select = myForm.Country;
 					 
-					function changeOption(){
-						 
-						var selection = document.getElementById("selection");
-						var selectedOption = Select.options[Select.selectedIndex];
+					function changeOption()
 
-						const countrySelected = dataCountry.find(item => item.country === selectedOption.text);
 
-						selCountry.textContent = "---";
+						const theUrl = 'https://www.worldometers.info/coronavirus/';
+						const xmlHttp = new XMLHttpRequest();
 
-						selCountry.textContent = "Країна: " + countrySelected.country;
-						selPopulation.textContent = "Населення: " + countrySelected.population;
-						selInfections.textContent = "Захворівших: " + countrySelected.infections;
-						selDeceased.textContent = "Померло: " + countrySelected.deceased;
-						selRecovered.textContent = "Вилікувались: " + countrySelected.recovered;
+						let el = document.createElement( 'html' );
+						xmlHttp.open( "GET", theUrl, false );
+						xmlHttp.send( null );
+						el.innerHTML = xmlHttp.responseText;
+						el.getElementsByClassName('maincounter-number');
 					}
 					 
 					Select.addEventListener("change", changeOption);
