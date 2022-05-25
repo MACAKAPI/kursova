@@ -111,14 +111,13 @@
 							const countrySelectedJS = dataCountry.find(item => item.country === selectedOption.value);
 
 							selCountry.textContent = "Країна: " + selectedOption.text;
-							selPopulation.textContent = "Населення: " + countrySelectedJS.population;
 							selInfections.textContent = "Захворівших: " + countrySelected.TotalConfirmed;
 							selDeceased.textContent = "Померло: " + countrySelected.TotalDeaths;
-							selRecovered.textContent = "Вилікувались: " + countrySelectedJS.recovered;
 							selDate.textContent = "Дата: " + countrySelected.Date;
+							selRecovered.textContent = "Вилікувались: " + countrySelectedJS.recovered;
+							selPopulation.textContent = "Населення: " + countrySelectedJS.population;
 						}
 						});
-
 						
 					}
 					 
