@@ -107,10 +107,8 @@
 							var myObj = JSON.parse(this.responseText);
 							const Countries = myObj.Countries;
 
-							console.log(selectedOption.value);
 							const countrySelected = Countries.find(item => item.Country === selectedOption.value);
 							const countrySelectedJS = dataCountry.find(item => item.country === selectedOption.value);
-							console.log(countrySelected);
 
 							selCountry.textContent = "Країна: " + selectedOption.text;
 							selPopulation.textContent = "Населення: " + countrySelectedJS.population;
