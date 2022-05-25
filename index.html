@@ -53,17 +53,17 @@
 				<form name="myForm" class="select-form">
 					<select name="Country" size="12" class="select">
 						<option value="---" selected="selected">---</option>
-						<option value="Німеччина">Німеччина</option>
-						<option value="Білорусь" >Білорусь</option>
-						<option value="Естонія">Естонія</option>
-						<option value="Латвія">Латвія</option>	
-						<option value="Литва">Литва</option>
-						<option value="Польща">Польща</option>
-						<option value="Сербія">Сербія</option>
-						<option value="Хорватія">Хорватія</option>
-						<option value="Словаччина">Словаччина</option>
-						<option value="Угорщина">Угорщина</option>
-						<option value="Україна">Україна</option>
+						<option value="Germany">Німеччина</option>
+						<option value="Belarus" >Білорусь</option>
+						<option value="Estonia">Естонія</option>
+						<option value="Latvia">Латвія</option>	
+						<option value="Lithuania">Литва</option>
+						<option value="Poland">Польща</option>
+						<option value="Serbia">Сербія</option>
+						<option value="Croatia">Хорватія</option>
+						<option value="Slovakia">Словаччина</option>
+						<option value="Hungary">Угорщина</option>
+						<option value="Ukraine">Україна</option>
 					</select>
 				</form>
 
@@ -80,6 +80,7 @@
 				<div id="selInfections" class="data"></div>
 				<div id="selDeceased" class="data"></div>
 				<div id="selRecovered" class="data"></div>
+				<div id="selDate" class="data"></div>
 
                 <button class="modal-close-button" data-modal-close>Закрити</button>
                 
@@ -91,21 +92,36 @@
 					 
 					function changeOption(){
 
-						const theUrl = 'https://github.com/owid/covid-19-data/blob/master/public/data/latest/owid-covid-latest.json';
+						var selection = document.getElementById("selection");
+						var selectedOption = Select.options[Select.selectedIndex];
+						
+						var xhr = new XMLHttpRequest();
+						xhr.withCredentials = true;
 
-						var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
-						var xhr = new XHR();
-						xhr.open('GET', theUrl, true);
-
-						xhr.onload = function() {
-  							alert( this.responseText );
-						}
-
-						xhr.onerror = function() {
-  							alert( 'Ошибка ' + this.status );
-						}				
-
+						xhr.open("GET", "https://api.covid19api.com/summary");
 						xhr.send();
+
+						xhr.addEventListener("readystatechange", function() {
+						if(this.readyState === 4) {
+
+							var myObj = JSON.parse(this.responseText);
+							const Countries = myObj.Countries;
+
+							console.log(selectedOption.value);
+							const countrySelected = Countries.find(item => item.Country === selectedOption.value);
+							const countrySelectedJS = dataCountry.find(item => item.country === selectedOption.value);
+							console.log(countrySelected);
+
+							selCountry.textContent = "Країна: " + selectedOption.text;
+							selPopulation.textContent = "Населення: " + countrySelectedJS.population;
+							selInfections.textContent = "Захворівших: " + countrySelected.TotalConfirmed;
+							selDeceased.textContent = "Померло: " + countrySelected.TotalDeaths;
+							selRecovered.textContent = "Вилікувались: " + countrySelectedJS.recovered;
+							selDate.textContent = "Дата: " + countrySelected.Date;
+						}
+						});
+
+						
 					}
 					 
 					Select.addEventListener("change", changeOption);
