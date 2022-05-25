@@ -91,13 +91,11 @@
 					 
 					function changeOption(){
 
-
-
 						const theUrl = 'https://www.worldometers.info/coronavirus/';
 						const xmlHttp = new XMLHttpRequest();
 
 						let el = document.createElement( 'html' );
-						xmlHttp.open( "GET", theUrl, false );
+						xmlHttp.open( "GET", theUrl, true );
 						xmlHttp.send( null );
 						el.innerHTML = xmlHttp.responseText;
 						el.getElementsByClassName('maincounter-number');
